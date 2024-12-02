@@ -1,0 +1,13 @@
+static char nonRepeatingChar(String s) {
+        // Your code here
+        HashMap<Character,Integer> mm = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            mm.putIfAbsent(c,0);
+            mm.put(c,mm.get(c)+1);
+        }
+        for(int i=0;i<s.length();i++){
+            if(mm.get(s.charAt(i))==1)return s.charAt(i);
+        }
+        return '$';
+    }
